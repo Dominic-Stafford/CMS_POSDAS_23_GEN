@@ -5,10 +5,10 @@
 `scram p CMSSW_9_3_9_patch1`\
 `cd CMSSW_9_3_9_patch1`\
 `cmsenv`\
-`cd -`\
+`cd -`
 
 ## Setting up MadGraph
-wget https://cms-project-generators.web.cern.ch/cms-project-generators/MG5_aMC_v2.6.0.tar.gz
+`wget https://cms-project-generators.web.cern.ch/cms-project-generators/MG5_aMC_v2.6.0.tar.gz`\
 tar xf MG5_aMC_v2.6.0.tar.gz
 rm MG5_aMC_v2.6.0.tar.gz
 cd MG5_aMC_v2_6_0
