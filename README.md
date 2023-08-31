@@ -13,7 +13,7 @@
 `rm MG5_aMC_v2.6.0.tar.gz`\
 `cd MG5_aMC_v2_6_0`
 
-# Run with interactive command shell and install libraries and Pythia8 (~50min)
+### Run with interactive command shell and install libraries and Pythia8 (~50min)
 `./bin/mg5`\
 `install lhapdf`\
 `install zlib`\
@@ -21,9 +21,11 @@
 `install pythia8`\
 `install collier`\
 `install oneloop`\
-`install ninja`\
+`install ninja`
 
-
+### Soft link the LHPDF data 
+`change in ../pathto/MG5_aMC_v2_9_16/HEPTools/lhapdf6_py3/share`\
+`ln -s /nfs/dust/cms/user/jung/cvs/lhapdf/share/LHAPDF .`
 
 ## Using MadGraph to generate parton-level events 
 
