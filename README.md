@@ -24,7 +24,7 @@
 `install ninja`
 
 ### Soft link the LHPDF data 
-`change in ../pathto/MG5_aMC_v2_9_16/HEPTools/lhapdf6_py3/share`\
+`change in ../pathto/MG5_aMC_v2_9_13/HEPTools/lhapdf6_py3/share`\
 `ln -s /nfs/dust/cms/user/jung/cvs/lhapdf/share/LHAPDF .`
 
 ## Using MadGraph to generate parton-level events 
