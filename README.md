@@ -1,11 +1,11 @@
 # CMS_POSDAS_23_GEN
 
 ##  Setting up CMSSW 
-`source /cvmfs/cms.cern.ch/cmsset_default.sh`
-`scram p CMSSW_9_3_9_patch1`
-`cd CMSSW_9_3_9_patch1`
-`cmsenv`
-`cd -`
+`source /cvmfs/cms.cern.ch/cmsset_default.sh`\
+`scram p CMSSW_9_3_9_patch1`\
+`cd CMSSW_9_3_9_patch1`\
+`cmsenv`\
+`cd -`\
 
 ## Setting up MadGraph
 wget https://cms-project-generators.web.cern.ch/cms-project-generators/MG5_aMC_v2.6.0.tar.gz
