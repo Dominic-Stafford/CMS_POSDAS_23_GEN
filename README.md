@@ -8,10 +8,10 @@
 `cd -`
 
 ## Setting up MadGraph
-`wget https://cms-project-generators.web.cern.ch/cms-project-generators/MG5_aMC_v2.6.0.tar.gz`\
-`tar xf MG5_aMC_v2.6.0.tar.gz`\
-`rm MG5_aMC_v2.6.0.tar.gz`\
-`cd MG5_aMC_v2_6_0`
+`wget https://cms-project-generators.web.cern.ch/cms-project-generators/MG5_aMC_v2.9.13.tar.gz`\
+`tar xf MG5_aMC_v2.9.13.tar.gz`\
+`rm MG5_aMC_v2.9.13.tar.gz`\
+`cd MG5_aMC_v2_9_13`
 
 ### Run with interactive command shell and install libraries and Pythia8 (~50min)
 `./bin/mg5`\
