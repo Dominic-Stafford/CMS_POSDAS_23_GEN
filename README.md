@@ -1,31 +1,31 @@
 # CMS_POSDAS_23_GEN
 
 ##  Setting up CMSSW 
-source /cvmfs/cms.cern.ch/cmsset_default.sh
-scram p CMSSW_9_3_9_patch2
-cd CMSSW_12_4_4_patch2
-cmsenv
-cd -
+`source /cvmfs/cms.cern.ch/cmsset_default.sh`\
+`scram p CMSSW_12_4_14_patch2`\
+`cd CMSSW_12_4_14_patch2`\
+`cmsenv`\
+`cd -`
 
 ## Setting up MadGraph
-wget https://cms-project-generators.web.cern.ch/cms-project-generators/MG5_aMC_v2.9.16.tar.gz
-tar xf MG5_aMC_v2.9.16.tar.gz
-rm MG5_aMC_v2.9.16.tar.gz
-cd MG5_aMC_v2.9.16
+`wget https://cms-project-generators.web.cern.ch/cms-project-generators/MG5_aMC_v2.9.13.tar.gz`\
+`tar xf MG5_aMC_v2.9.13.tar.gz`\
+`rm MG5_aMC_v2.9.13.tar.gz`\
+`cd MG5_aMC_v2_9_13`
 
-# Run with interactive command shell and install libraries (~1h)
-./bin/mg5_aMC
-install lhapdf
-install zlib
-install hepmc
-install pythia8
-install collier
-install oneloop
-install ninja
+### Run with interactive command shell and install libraries and Pythia8 (~50min)
+`./bin/mg5`\
+`install lhapdf`\
+`install zlib`\
+`install hepmc`\
+`install pythia8`\
+`install collier`\
+`install oneloop`\
+`install ninja`
 
-### Soft link the LHPDF data
-change in ~/scratch-dust/cvs/madgraph/MG5_aMC_v2_9_16/HEPTools/lhapdf6_py3/share
-ln -s /nfs/dust/cms/user/jung/cvs/lhapdf/share/LHAPDF .
+### Soft link the LHPDF data 
+`change in /pathto/MG5_aMC_v2_9_13/HEPTools/lhapdf6_py3/share`\
+`ln -s /pathto/lhapdf/share/LHAPDF .`
 
 ## Using MadGraph to generate parton-level events 
 
