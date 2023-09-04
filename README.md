@@ -31,7 +31,7 @@
 ## Setting up [Rivet in CMSSW](https://twiki.cern.ch/twiki/bin/view/CMS/Rivet#Setting_Rivet_in_CMSSW)
 `cmsrel CMSSW_12_5_0`\
 `cd CMSSW_12_5_0/src`\
-`cmsenv`\
+`cmsenv`
 
 `git-init-cms`\
 `git-cms-addpkg GeneratorInterface/RivetInterface`\
@@ -40,7 +40,7 @@
 `cd Rivet`\
 `git remote add cmsgen https://gitlab.cern.ch/cms-gen/Rivet.git`\
 `source rivetSetup.sh`\
-`scram b -j8`\
+`scram b -j8`
 
 
 ## Using MadGraph to generate parton-level events 
