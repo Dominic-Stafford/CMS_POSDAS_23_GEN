@@ -27,6 +27,22 @@
 `change in /pathto/MG5_aMC_v2_9_13/HEPTools/lhapdf6_py3/share`\
 `ln -s /pathto/lhapdf/share/LHAPDF .`
 
+
+## Setting up [Rivet in CMSSW](https://twiki.cern.ch/twiki/bin/view/CMS/Rivet#Setting_Rivet_in_CMSSW)
+`cmsrel CMSSW_12_5_0`\
+`cd CMSSW_12_5_0/src`\
+`cmsenv`\
+
+`git-init-cms`\
+`git-cms-addpkg GeneratorInterface/RivetInterface`\
+`git-cms-addpkg Configuration/Generator`
+`git clone https://gitlab.cern.ch/cms-gen/Rivet.git`\
+`cd Rivet`\
+`git remote add cmsgen https://gitlab.cern.ch/cms-gen/Rivet.git`\
+`source rivetSetup.sh`\
+`scram b -j8`\
+
+
 ## Using MadGraph to generate parton-level events 
 
 
