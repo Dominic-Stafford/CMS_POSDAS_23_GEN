@@ -42,6 +42,11 @@
 `source rivetSetup.sh`\
 `scram b -j8`
 
+`cd ${CMSSW_BASE}/src/Rivet/TOP/test/`\
+`source setupTopRivet.sh`\
+`cd -`
+
+
 
 ## Using MadGraph to generate parton-level events 
 
