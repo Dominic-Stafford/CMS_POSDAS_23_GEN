@@ -52,7 +52,7 @@
 `cmsRun runRivetAnalyzer_13TeV_cfg.py`\
 `rivet-mkhtml test.yoda`
 
-Turn off ISR and FSR, and look at the results at the additional jets pT:
+Turn off ISR and FSR, and look at the results at the additional jets pT:\
 `evince rivet-plots/CMS_2016_I1491950/d22-x02-y01.pdf`
 
 
