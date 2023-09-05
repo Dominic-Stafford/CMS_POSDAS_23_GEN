@@ -46,7 +46,7 @@
 `source setupTopRivet.sh`\
 `cd -`
 
-`git clone git@github.com:Dominic-Stafford/CMS_POSDAS_23_GEN/RunRivetCMSSW.git`\
+`git clone git@github.com:Dominic-Stafford/CMS_POSDAS_23_GEN.git`\
 `cd CMS_POSDAS_23_GEN/RunRivetCMSSW`
 
 `cmsRun runRivetAnalyzer_13TeV_cfg.py`\
