@@ -31,7 +31,7 @@ install oneloop
 install ninja
 ```
 
-### Soft link the LHPDF data 
+### Soft link the LHPDF data (only for standalone MadGraph)
 ```
 change in /pathto/MG5_aMC_v2_9_13/HEPTools/lhapdf6_py3/share
 ln -s /pathto/lhapdf/share/LHAPDF .
