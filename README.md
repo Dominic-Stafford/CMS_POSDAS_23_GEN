@@ -47,7 +47,7 @@ cmsenv
 
 `git-init-cms`\
 `git-cms-addpkg GeneratorInterface/RivetInterface`\
-`git-cms-addpkg Configuration/Generator`
+`git-cms-addpkg Configuration/Generator`\
 `git clone https://gitlab.cern.ch/cms-gen/Rivet.git`\
 `cd Rivet`\
 `git remote add cmsgen https://gitlab.cern.ch/cms-gen/Rivet.git`\
