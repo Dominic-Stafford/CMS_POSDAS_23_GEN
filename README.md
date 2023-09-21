@@ -8,7 +8,7 @@ We will first activate a CMSSW environment to ensure everyone has a consistent s
 ```
 source /cvmfs/cms.cern.ch/cmsset_default.sh
 scram p CMSSW_12_4_14_patch2
-cd CMSSW_12_4_14_patch2
+cd CMSSW_12_4_14_patch2/src
 cmsenv
 ```
 
