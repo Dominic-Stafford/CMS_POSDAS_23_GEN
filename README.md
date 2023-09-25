@@ -17,7 +17,7 @@ cmsenv
 We will use [Rivet](https://rivet.hepforge.org/) to analyse events. A version of Rivet has been designed to be run in CMSSW, which can be set up as follows:
 
 ```
-git-init-cms
+git-cms-init
 git-cms-addpkg GeneratorInterface/RivetInterface
 git clone https://gitlab.cern.ch/cms-gen/Rivet.git
 cd Rivet
