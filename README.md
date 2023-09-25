@@ -19,6 +19,7 @@ We will use [Rivet](https://rivet.hepforge.org/) to analyse events. A version of
 ```
 git-cms-init
 git-cms-addpkg GeneratorInterface/RivetInterface
+git-cms-addpkg Configuration/Generator
 git clone https://gitlab.cern.ch/cms-gen/Rivet.git
 cd Rivet
 source rivetSetup.sh
