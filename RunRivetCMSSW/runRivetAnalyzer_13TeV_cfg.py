@@ -38,9 +38,9 @@ process.generator = cms.EDFilter("Pythia8GeneratorFilter",
              'Tune:pp 14',      # Monash tune
              'Top:gg2ttbar    = on', # switch on g g -> t tbar 
              'Top:qqbar2ttbar = on', # switch on q qbar -> t tbar
-             'PartonLevel:FSR = off', #Turn off FS parton Shower
-             'PartonLevel:MPI = off', #Turn off Multiparton interactions
-             'PartonLevel:ISR = off',
+             'PartonLevel:FSR = on', #Turn off FS parton Shower
+             'PartonLevel:MPI = on', #Turn off Multiparton interactions
+             'PartonLevel:ISR = on',
              '6:m0 = 172.5',    # top mass'
          ),
          parameterSets = cms.vstring('processParameters')
