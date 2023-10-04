@@ -7,8 +7,8 @@
 We will first activate a CMSSW environment to ensure everyone has a consistent set of enviroment variables. Make a new directory for this exercise and execute the following commands:
 ```
 source /cvmfs/cms.cern.ch/cmsset_default.sh
-scram p CMSSW_12_4_14_patch2
-cd CMSSW_12_4_14_patch2/src
+scram p CMSSW_12_5_0
+cd CMSSW_12_5_0/src
 cmsenv
 ```
 
