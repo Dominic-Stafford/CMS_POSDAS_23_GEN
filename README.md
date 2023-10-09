@@ -108,3 +108,55 @@ Start with ttbar+1jet (mlm)
 Then move to FxFx
 
 ## Exercise 3: Modify rivet routines
+Rivet is a system for validation of Monte Carlo event generators that provides a large set of experimental analysis. It contains most of the LHC and other high-energy colliders experiments code which is preserved for comparison and develompent of future therory models. In this exercise we will use CMS_2016_I1491950 and will modify to add the number of jets and jet pt doing:
+```
+vim CMSSW_12_5_0/src/Rivet/TOP/src/CMS_2016_I1491950.cc
+```
+and will book  the histograms inside `void init() {}` as:
+
+```
+    //book hists
+    book(_h_pt1, "pt_jet1", logspace(50,1,500));
+    book(_h_pt2, "pt_jet2", logspace(50,1,500));
+    book(_h_pt3, "pt_jet3", logspace(50,1,500));
+    book(_h_pt4, "pt_jet4", logspace(50,1,500));
+
+```
+
+Then inside the `void analyze ()` fill the histograms as:
+
+```
+      // fill histograms     
+      _h_pt1->fill(allJets[0].pT());
+      _h_pt2->fill(allJets[1].pT());
+     
+      if( allJets.size() > 2 ) _h_pt3->fill(allJets[2].pT());
+      if( allJets.size() > 3 ) _h_pt4->fill(allJets[3].pT());
+```
+
+
+And finally in `void finalize(){}` normalize the histos as:
+
+```
+    void finalize()
+    {
+      //new histo normalize
+      scale(_h_pt1, crossSection()/sumOfWeights());
+      scale(_h_pt2, crossSection()/sumOfWeights());
+      scale(_h_pt3, crossSection()/sumOfWeights());
+      scale(_h_pt4, crossSection()/sumOfWeights());
+```
+
+Then at the very end one needs to declare the histograms as:
+
+```
+   Histo1DPtr _h_pt1;
+   Histo1DPtr _h_pt2;
+   Histo1DPtr _h_pt3;
+   Histo1DPtr _h_pt4;
+
+```
+
+Then inside  `CMSSW_12_5_0/src/Rivet` do `scram b -j8` to compile the rivet routine.
+
+
