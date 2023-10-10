@@ -24,17 +24,14 @@ generator = cms.EDFilter("Pythia8HadronizerFilter",
 from GeneratorInterface.RivetInterface.rivetAnalyzer_cfi import rivetAnalyzer
 
 rivetAnalyzer.AnalysisNames = cms.vstring(
-    'CMS_2015_I1370682', # diff xs particle->parton level
-    'CMS_2015_I1370682_internal', # diff xs parton level
-    'CMS_2015_I1397174', # jet multiplicity dilepton
-    'CMS_2016_I1454211', # boosted top
-    'CMS_2016_I1473674', # HT, MET, ST, WPT
-    'CMS_TOP_15_006', # jet multiplicity lepton+jets
     'MC_TTBAR', # MC analysis for lepton+jets
     'MC_TOPMASS_LJETS', # MC analysis for lepton+jets top mass
-    'CMS_LesHouches2015', # MC analysis for dilepton
-    'MC_GENERIC', # MC generic analysis
+    'MC_FSPARTICLES', # MC generic analysis
     'MC_XS', # MC xs analysis
+    'CMS_2016_I1491950',  # diff xs lepton+jets (2015 paper)
+    'CMS_2018_I1620050',  # diff xs dilepton (2015 paper)
+    'CMS_2018_I1663958',  # ttbar lepton+jets 13 TeV
 )
+rivetAnalyzer.OutputFile = cms.string("ttbar_external_lhe.yoda")
 
 ProductionFilterSequence = cms.Sequence(generator*rivetAnalyzer)
