@@ -99,7 +99,7 @@ launch
 
 You will then see some switches for additional options, which can be left off for now. Then you will get the option to edit the cards which control the run: open these in turn (by default MG5_aMC will open these with vim, after you've finished looking enter :quit! to exit without saving). The param card contains the parameters for the currently used physics model- by default this contains all of the SM interactions. The proc card contains speicfic cuts and other settings for madgraph when running. After you have looked at these cards, MG5_aMC will compile some code to compute the process, then generate some events (by default 10000).
 
-A folder called LO_ttbar will be created in the MG5_aMC_v2_9_13 directory, containing all of the information from this run. If you managed to mount your file system as described in the preliminaries, you can navigate to this directory and open `index.html` with your web browser, which gives an overview of the information. Clicking on "Process Information " shows the information about the different sub-processes considered, including the corresponding Feynmann diagrams. Clicking on "Results and Event Database" then "LHE" will show the LHE file containing the generated events. If you are unable to open the html file, you can instead unzip the lhe file and view it in the terminal:
+A folder called LO_ttbar will be created in the MG5_aMC_v2_9_13 directory, containing all of the information from this run. If you managed to mount your file system as described in the preliminaries, you can navigate to this directory and open `index.html` with your web browser, which gives an overview of the information. Clicking on "Process Information " shows the information about the different sub-processes considered, including the corresponding Feynmann diagrams. Clicking on "Results and Event Database" then "LHE" will point to the  file containing the generated events in Les Houches Event format. If you are unable to open the html file, you can instead unzip the lhe file and view it in the terminal:
 
 ```
 gunzip LO_ttbar/Events/run_01/unweighted_events.lhe.gz
@@ -112,7 +112,7 @@ Looking at the file, the first lines contains the log of the commands in the mad
 python3 scripts/plot_lhe.py path/to/your/mgdir/LO_ttbar/Events/run_01/unweighted_events.lhe.gz lhe_plots
 ```
 
-This will produce plots of the mass and pt of the tops, as well as the invariant mass of the ttbar system. Try modifying this script to also produce the pt of the ttbar system. Have a look at the plots. Are these what you would expect?
+This will produce plots of the mass and pt of each of the tops, as well as the invariant mass of the top-quark pair $t\bar{t}$ system. Try modifying this script to also produce the pt of the ttbar system. Have a look at the plots. Are these what you would expect?
 
 #### Extensions:
 - In the above exercise we have produced stable tops. We know in reality tops are unstable and do decay into (mostly) a W-boson and a b-quark.
