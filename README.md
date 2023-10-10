@@ -60,7 +60,6 @@ We can then display the particle content of the model with this command:
 import model sm
 display multiparticles
 ```
-
 For this tutorial we will  generate top quark pair production events at LO in QCD with the following commands: (Or should we ge them to run the interactive tutorial? It's also ttbar)
 
 ```
@@ -88,7 +87,15 @@ Look in lhe file
 To add: script for looking at lhe events
 
 Extensions:
-- Add decays (with madspin?)
+- In the above exercise we have produced stable tops. We know in reality tops are unstable and do decay into (mostly) a W-boson and a b-quark.
+  Try to regenerate the events but now including both the top-quark and W-boson decays (we consider here semileptonic decays)
+  ```
+  generate p p > t t~, (t > W+ b, W+ > j j), (t~ > W- b~, W- > l- vl~)
+  ```
+  The above code will calculate the top production and decay process independently, in the so-called Narrow Width Approximation (NWA).
+  Strictly speaking this is only exact in the limit of a vanishing top quark width,
+  and the approximation will be worse and worse as one goes away from the resonance peak.
+  
 - Redefine the proton to include b quarks (and set b mass to 0)
 - Produce tt+1j mlm
 - Uncertainty weights?
