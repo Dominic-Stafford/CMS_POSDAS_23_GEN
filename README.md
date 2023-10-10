@@ -155,11 +155,13 @@ cmsRun external_lhe_cfg.py
 
 Look at printed event output
 
-Look at rivet plots
+This will produce events in a root file in the GEN format. This is not very easy to analyse directly, and is intended for passing to further commands to run the detector simulation and reconstruction to provide the (mini/nano)AOD samples you use in your analysis. It can also be converted to nanoGEN, a format similar to nanoAOD containing only generator information. However in this exercise we will not look directly in this file, but instead look at the output of some analyses implemented in rivet which we included in the fragment.  We will cover how to make your own rivet analysis in section 3, but for now you can look at the output of the pre-defined ones, which include some unfolded data from previous anlyses. cmsRun will have produced a rivetfile called `ttbar_external_lhe.yoda` containing all of the output histograms from these analyses, which one can plot with the following command:
 
-(### Rivet routines for top)
-https://rivet.hepforge.org/analyses/MC_TTBAR.html
-https://rivet.hepforge.org/analyses/MC_PARTONICTOPS.html
+```
+rivet-mkhtml --mc-errs ttbar_external_lhe.yoda
+```
+
+This will produce a directory called `rivet-plots`. If you managed to mount the file system, you can just open `rivet-plots/index.html` with a web browser, which will allow you to browse through the plots from the different analyses, along with their descriptions. If you didn't manage to mount the file system you can still open the individual pdf or png images inside these directories. have a look at the output distributions. Do these agree with the data? Is this what you would expect?
 
 Extensions:
 - Look at effects of turning on and off MPI, had, FSR, ISR, QED, etc.
@@ -189,6 +191,11 @@ cmsDriver.py Configuration/GenProduction/python/gridpack_cff.py --python_filenam
 cmsRun gridpack_cfg.py
 ```
 
+You can then produce the rivet plots for this run, and compare it to what you produced for the external LHE. Do these agree? Would you expect them to?
+
+```
+rivet-mkhtml --mc-errs ttbar_gridpack.yoda ttbar_external_lhe.yoda
+```
 
 
 ## Exercise 3: Modify rivet routines
