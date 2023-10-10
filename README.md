@@ -54,8 +54,8 @@ MG5_aMC comes with an interactive shell, which is very helpful for learning the 
 
 This will show a splash screen, a few warnings related to additional packages not being installed (which you can ignore), and a list of predefined multiparticles such the proton. You will then see a command prompt. Two useful commands are `help`, to list all possible commands, or `tutorial`, which gives an interactive walk through of how to generate events. 
 
-We will first need to specify the model we want to use. This specifies the particles considered and their interactions, and is implemented in UFO format. 
-We can then display the particle content of the model with this command:
+We will first need to specify the model we want to use. This specifies the particles considered and their interactions, and is implemented in Universal Feynrules Output (or UFO) format. A list of many models can be found at this link [Model Database](https://feynrules.irmp.ucl.ac.be/wiki/ModelDatabaseMainPage)
+We can display the particle content of the model with this command:
 ```
 import model sm
 display multiparticles
