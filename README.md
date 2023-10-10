@@ -168,8 +168,15 @@ rivet-mkhtml --mc-errs ttbar_external_lhe.yoda
 
 This will produce a directory called `rivet-plots`. If you managed to mount the file system, you can just open `rivet-plots/index.html` with a web browser, which will allow you to browse through the plots from the different analyses, along with their descriptions. If you didn't manage to mount the file system you can still open the individual pdf or png images inside these directories. have a look at the output distributions. Do these agree with the data? Is this what you would expect?
 
-Extensions:
-- Look at effects of turning on and off MPI, had, FSR, ISR, QED, etc.
+#### Extensions:
+
+Pythia does a lot of steps to convert the hard process to a full event: a parton shower is run to simulate additional emissions (which can be separated into final state radiation (FSR), which leads to the formation of jets, and inital state radiation (ISR), which tends to produce additional jets), then the event is hadronised to turn the coloured particles into colourless hadrons, then the unstable hadrons are decayed. Additional interactions are also simulated due to the interaction of other partons in the colliding protons (multi-parton interactions, MPI). The best way to get a feel for these is to turn these off sequentially and look at the impact on the rivet analyses. In the `parameterSets` section of your `external_lhe_cfg.py` uncomment `processParameters` to allow additional options. You can then uncomment each of the lines in your `processParameters` block to turn each step off and rerun with `cmsRun` for each. You will also need to change the `OutputFile` argument of the `rivetAnalyzer` to save the histograms in a different file each time. To better compare, one can plot multiple rivet analyses on the same axes:
+
+```
+rivet-mkhtml --mc-errs ttbar_external_lhe.yoda MPI_off.yoda
+```
+
+Feel free to discuss your outputs with the Facilators to understand the impact of each step.
 
 ## Exercise 2: Generating gridpacks
 
