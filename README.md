@@ -44,8 +44,7 @@ The madgraph5_aMC@NLO (in short MG5_aMC) program is a flexible and powerful part
 It can perform the automatic computation of  parton-level events for arbitrary Standard Model processes
 and for many theories Beyond the Standard Model at leading-order (LO) and next-to-leading-order (NLO) in the strong coupling.
 
-Starting from the Feynman rules, as implemented in an UFO model, it will compute all of the feynman diagrams for a given process,
-and calculate automatically the matrix-elements.
+
 
 MG5_aMC comes with an interactive shell, which is very helpful for learning the syntax of the commands. To start this, type:
 
@@ -53,13 +52,34 @@ MG5_aMC comes with an interactive shell, which is very helpful for learning the 
 ./bin/mg5_aMC
 ```
 
-This will show a splash screen, a few warnings related to additional packages not being installed (which you can ignore), and a list of predefined multiparticles such the proton. You will then see a command prompt. Two useful commands are `help`, to list all possible commands, or `tutorial`, which gives an interactive walk through of how to generate events. For this tutorial one can generate a ttbar event with the following commands: (Or should we ge them to run the interactive tutorial? It's also ttbar)
+This will show a splash screen, a few warnings related to additional packages not being installed (which you can ignore), and a list of predefined multiparticles such the proton. You will then see a command prompt. Two useful commands are `help`, to list all possible commands, or `tutorial`, which gives an interactive walk through of how to generate events. 
+
+We will first need to specify the model we want to use. This specifies the particles considered and their interactions, and is implemented in UFO format. 
+We can then display the particle content of the model with this command:
+```
+import model sm
+display multiparticles
+```
+
+For this tutorial we will  generate top quark pair production events at LO in QCD with the following commands: (Or should we ge them to run the interactive tutorial? It's also ttbar)
 
 ```
 generate p p > t t~
 output LO_ttbar
+```
+
+Starting from the Feynman rules of the SM MG5_aMC has now computed all of the feynman diagrams for the production of top quark pairs at LO and Fortran code to evaluate the squared matrix-elements. Have a look at the Feynman diagrams of the process (need X11 forwarding) by typing:
+
+```
+display diagrams
+```
+
+Now let's begin to integrate the process and generate the actual events with the following command:
+
+```
 launch
 ```
+
 
 You will then see some switches for additional options, which can be left off for now. Then you will get the option to edit the cards which control the run: open these in turn (by default MG5_aMC will open these with vim, after you've finished looking enter :quit! to exit without saving). The param card contains the parameters for the currently used physics model- by default this contains all of the SM interactions. The proc card contains speicfic cuts and other settings for madgraph when running. After you have looked at these cards, MG5_aMC will compile some code to compute the process, then generate some events (by default 10000).
 
