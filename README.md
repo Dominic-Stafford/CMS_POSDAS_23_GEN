@@ -112,7 +112,7 @@ Looking at the file, the first lines contains the log of the commands in the mad
 python3 scripts/plot_lhe.py path/to/your/mgdir/LO_ttbar/Events/run_01/unweighted_events.lhe.gz lhe_plots
 ```
 
-This will produce plots of the mass and pt of each of the tops, as well as the invariant mass of the top-quark pair $t\bar{t}$ system. Try modifying this script to also produce the pt of the ttbar system. Have a look at the plots. Are these what you would expect?
+This will produce plots of the mass and transverse momentum, $p_T$, of each of the tops, as well as the invariant mass of the top-quark pair, $t\bar{t}$, system. Try modifying the script to also produce the $p_T$ of the $t\bar{t}$ system. Have a look at the plots. Are these what you would expect?
 
 #### Extensions:
 - In the above exercise we have produced stable tops. We know in reality tops are unstable and do decay into (mostly) a W-boson and a b-quark.
