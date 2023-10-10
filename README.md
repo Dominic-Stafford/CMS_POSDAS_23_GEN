@@ -112,9 +112,14 @@ Looking at the file, the first lines contains the log of the commands in the mad
 python3 scripts/plot_lhe.py path/to/your/mgdir/LO_ttbar/Events/run_01/unweighted_events.lhe.gz lhe_plots
 ```
 
-This will produce plots of the mass and transverse momentum, $p_T$, of each of the tops, as well as the invariant mass of the top-quark pair, $t\bar{t}$, system. Try modifying the script to also produce the $p_T$ of the $t\bar{t}$ system. Have a look at the plots. Are these what you would expect?
+This will produce plots of the mass and transverse momentum, $p_T$, of each of the tops, as well as the invariant mass of the top-quark pair, $t\bar{t}$, system. Try modifying the script to also produce the $p_T$ of the $t\bar{t}$ system. Have a look at the plots. Are these what you would expect? 
 
 #### Extensions:
+
+- Generate events for the production of $t\bar{t}$  with one additional parton.
+  Make the same plots and compare them to the sample generated before.
+  Which ones change and how? Can you explain the differences?
+
 - In the above exercise we have produced stable tops. We know in reality tops are unstable and do decay into (mostly) a W-boson and a b-quark.
   Try to regenerate the events but now including both the top-quark and W-boson decays (we consider here semileptonic decays)
   ```
@@ -124,7 +129,7 @@ This will produce plots of the mass and transverse momentum, $p_T$, of each of t
   Strictly speaking this is only exact in the limit of a vanishing top quark width,
   and the approximation will be worse and worse as one goes away from the resonance peak.
 
-- Produce tt+1j mlm
+
 
 ### 1b. Showering events using [Pythia8](https://www.pythia.org//latest-manual/Welcome.html)
 
