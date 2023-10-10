@@ -255,11 +255,10 @@ Then at the very end one needs to declare the histograms as:
 
 Then inside  `CMSSW_12_5_0/src/Rivet` do `scram b -j8` to compile the rivet routine. 
 
-Then to run it and see the plots:
+One then needs to rerun the CMSSW routine which generates events and runs the new analysis, then re-plot the outputs:
 
 ```
- cd RunRivetCMSSW/   
- cmsRun runRivetAnalyzer_13TeV_cfg.py 
+ cmsRun external_lhe_cfg.py
+ rivet-mkhtml --mc-errs ttbar_external_lhe.yoda
 ```
-For make and look at the plots just do: `rivet-mkhtml test.yoda ` and `evince rivet-plots/CMS_2016_I1491950/pt_jet1.pdf `
 
