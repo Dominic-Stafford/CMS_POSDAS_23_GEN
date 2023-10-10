@@ -2,7 +2,7 @@
 
 ##  Preliminaries
 
-###  Setting up CMSSW 
+###  Setting up [CMSSW](https://github.com/cms-sw/cmssw) 
 
 We will first configure a CMSSW release to ensure everyone has a consistent environment and set of enviroment variables. 
 Create a new directory for this exercise and execute the following commands:
