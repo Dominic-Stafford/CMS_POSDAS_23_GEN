@@ -4,7 +4,8 @@
 
 ###  Setting up CMSSW 
 
-We will first activate a CMSSW environment to ensure everyone has a consistent set of enviroment variables. Make a new directory for this exercise and execute the following commands:
+We will first configure a CMSSW release to ensure everyone has a consistent environment and set of enviroment variables. 
+Create a new directory for this exercise and execute the following commands:
 ```
 source /cvmfs/cms.cern.ch/cmsset_default.sh
 scram p CMSSW_12_5_0
@@ -14,7 +15,8 @@ cmsenv
 
 ### Setting up [Rivet in CMSSW](https://twiki.cern.ch/twiki/bin/view/CMS/Rivet#Setting_Rivet_in_CMSSW)
 
-We will use [Rivet](https://rivet.hepforge.org/) to analyse events. A version of Rivet has been designed to be run in CMSSW, which can be set up as follows:
+We will use the [Rivet](https://rivet.hepforge.org/) program to analyse events. 
+Rivet can be run from within CMSSW. To set it up run the following commands:
 
 ```
 git clone https://gitlab.cern.ch/cms-gen/Rivet.git
@@ -24,8 +26,9 @@ scram b -j8
 cd ../../..
 ```
 
-### Setting up [MadGraph](https://launchpad.net/mg5amcnlo)
-
+### Setting up [MG5_aMC](https://launchpad.net/mg5amcnlo)
+For the first exercise we will run the standalone madgraph5_aMC@NLO program. 
+Download the program and extract the tarball using these commands:
 ```
 wget https://cms-project-generators.web.cern.ch/cms-project-generators/MG5_aMC_v2.9.13.tar.gz
 tar xf MG5_aMC_v2.9.13.tar.gz
@@ -33,11 +36,18 @@ rm MG5_aMC_v2.9.13.tar.gz
 ```
 
 ## Exercise 1
-### 1a.: Using MadGraph to generate parton-level events 
+### 1a.: Using madgraph5_aMC@NLO to generate parton-level events 
 
 ...Briefly descirbe ME generators...
 
-Madgraph comes with an interactive shell, which is very helpful for learning the syntax of the commands. To start this, type:
+The madgraph5_aMC@NLO (in short MG5_aMC) program is a flexible and powerful parton-level event generator.
+It can perform the automatic computation of  parton-level events for arbitrary Standard Model processes
+and for many theories Beyond the Standard Model at leading-order (LO) and next-to-leading-order (NLO) in the strong coupling.
+
+Starting from the Feynman rules, as implemented in an UFO model, it will compute all of the feynman diagrams for a given process,
+and calculate automatically the matrix-elements.
+
+MG5_aMC comes with an interactive shell, which is very helpful for learning the syntax of the commands. To start this, type:
 
 ```
 ./bin/mg5_aMC
@@ -51,7 +61,7 @@ output LO_ttbar
 launch
 ```
 
-You will then see some switches for additional options, which can be left off for now. Then you will get the option to edit the cards which control the run: open these in turn (by default madgraph will open these with vim, after you've finished looking enter :quit! to exit without saving). The param card contains the parameters for the currently used physics model- by default this contains all of the SM interactions. The proc card contains speicfic cuts and other settings for madgraph when running. After you have looked at these cards, madgraph will compile some code to compute the process, then generate some events (by default 10000).
+You will then see some switches for additional options, which can be left off for now. Then you will get the option to edit the cards which control the run: open these in turn (by default MG5_aMC will open these with vim, after you've finished looking enter :quit! to exit without saving). The param card contains the parameters for the currently used physics model- by default this contains all of the SM interactions. The proc card contains speicfic cuts and other settings for madgraph when running. After you have looked at these cards, MG5_aMC will compile some code to compute the process, then generate some events (by default 10000).
 
 Look in lhe file
 
@@ -67,7 +77,7 @@ Extensions:
 
 ...Briefly reiterate the concept of a PS, give introduction to pythia...
 
-In CMSSW generation (and most other processes) is controlled by python configuration files, which typically end in `cfg.py`. These contain all of the options required to produce events, including generator information and information related to the specific year being produced. To ensure portability of processes between years, the generator information is factorised into a more light weight format called a "fragment", which typically end in `cff.py`. We have provided one such simple fragment designed to shower a LO madgraph lhe file with pythia in `CMS_POSDAS_23_GEN/Fragments/external_lhe_cff.py`. This imports a set of common settings and the dedicated CMS UE Tune, CP5. To turn this fragment into a full configuration file that can produce events, one must first put it in a specific place within CMSSW, and recompile so CMSSW knows where to find it:
+In CMSSW generation (and most other processes) is controlled by python configuration files, which typically end in `cfg.py`. These contain all of the options required to produce events, including generator information and information related to the specific year being produced. To ensure portability of processes between years, the generator information is factorised into a more light weight format called a "fragment", which typically end in `cff.py`. We have provided one such simple fragment designed to shower a LO MG5_aMC lhe file with pythia in `CMS_POSDAS_23_GEN/Fragments/external_lhe_cff.py`. This imports a set of common settings and the dedicated CMS UE Tune, CP5. To turn this fragment into a full configuration file that can produce events, one must first put it in a specific place within CMSSW, and recompile so CMSSW knows where to find it:
 
 ```
 cd /PATH/TO/CMSSW_12_4_14_patch2/src
