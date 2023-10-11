@@ -138,7 +138,14 @@ This will produce plots of the mass and transverse momentum, $p_T$, of each of t
 
 ### 1b. Showering events using [Pythia8](https://www.pythia.org//latest-manual/Welcome.html)
 
-...Briefly reiterate the concept of a PS, give introduction to pythia...
+Since QCD confines, quarks and gluons are not physically observable.
+It is the job of Parton Shower programs to convert the Parton level events in to “particle-level” event samples
+They will emit many soft and collinear QCD partons (which we can conveniently map into “jets”)
+which will ultimately hadronise into hadrons and which after decay will produce the stable hadrons observable in our detector.
+In addition, when two proton collides one can have multiple partons simultaneously producing a QCD interaction
+(i.e. a g g -> j j collision overlapping with a q bar -> e+ e- collision where all partons are from the same protons.
+The description of these Multiple Parton Interactions (MPI) is also performed by the parton showers.
+The three main parton shower programs are Pythia8, Herwig and Sherpa, which differ in the details of the algorithms used both for the parton showering, hadronization and the MPI modeling. In this exercise we will explore the Pythia8 shower code.
 
 In CMSSW generation (and most other processes) is controlled by python configuration files, which typically end in `cfg.py`. These contain all of the options required to produce events, including generator information and information related to the specific year being produced. To ensure portability of processes between years, the generator information is factorised into a more light weight format called a "fragment", which typically end in `cff.py`. We have provided one such simple fragment designed to shower a LO madgraph lhe file with pythia in [Fragments/external_lhe_cff.py](Fragments/external_lhe_cff.py). This imports a set of common settings and the dedicated CMS UE Tune, CP5. To turn this fragment into a full configuration file that can produce events, one must first put it in a specific place within CMSSW, and recompile so CMSSW knows where to find it:
 
