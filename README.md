@@ -55,9 +55,14 @@ sshfs schoolXX@naf-cms.desy.de:/afs/desy.de/user/s/schoolXX my_das_school_dir
 ## Exercise 1
 ### 1a.: Using madgraph5_aMC@NLO to generate parton-level events 
 
-...Briefly descirbe ME generators...
-
-The madgraph5_aMC@NLO (in short MG5_aMC) program is a flexible and powerful parton-level event generator.
+The first kind of program we will look at is a matrix-element (ME) generator, which produces “parton-level events”.
+These codes take as input the Feynman rules of a given Lagrangian (typically the SM)
+and use them to compute the ME and produce events for a given process using MC integrations (e.g. e+ e- -> mu+ mu-, p bar -> q qbar, p p > Z0 b, …).
+These events will contain the fields present in the Lagrangian (leptons, quarks, gluons, photons),
+which however do not usually correspond to the same particles produced in collider events (due to QCD confinement and other details we will discuss later on).
+There are three codes specialized in producing parton-level events for (almost) arbitrary processes: Powheg, mg5_aMC and Sherpa.
+They can all produce events ar leading- and next-to-leading and, for Powheg, also at next-to-next-to-leading order.
+The madgraph5_aMC@NLO (in short MG5_aMC) program we will use in this tutorial is a flexible and powerful parton-level event generator.
 It can perform the automatic computation of  parton-level events for arbitrary Standard Model processes
 and for many theories Beyond the Standard Model at leading-order (LO) and next-to-leading-order (NLO) in the strong coupling.
 
