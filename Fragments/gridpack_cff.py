@@ -33,6 +33,7 @@ from GeneratorInterface.RivetInterface.rivetAnalyzer_cfi import rivetAnalyzer
 
 rivetAnalyzer.AnalysisNames = cms.vstring(
     'MC_TTBAR', # MC analysis for lepton+jets
+    'MC_PARTONICTOPS', # MC parton level top analysis
     'MC_TOPMASS_LJETS', # MC analysis for lepton+jets top mass
     'MC_FSPARTICLES', # MC generic analysis
     'MC_XS', # MC xs analysis

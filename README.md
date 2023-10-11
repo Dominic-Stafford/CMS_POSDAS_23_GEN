@@ -149,7 +149,7 @@ scram b -j 4
 The command that converts fragments to full configurations is cmsDriver.py this has many options, however generally one can take a pre-existing command from a previous generator request in the same campaign, so does not need to memorise all the options. For this tutorial run the following command:
 
 ```
-cmsDriver.py Configuration/GenProduction/python/external_lhe_cff.py --python_filename external_lhe_cfg.py --eventcontent RAWSIM --datatier GEN --filein file:/nfs/dust/cms/user/stafford/POSDAS_23/tmp/cmsgrid_final.lhe --fileout file:ttbar.root --conditions 106X_upgrade2018_realistic_v4 --beamspot Realistic25ns13TeVEarly2018Collision --step GEN --geometry DB:Extended --era Run2_2018 --no_exec --mc --customise_commands process.MessageLogger.cerr.FwkReport.reportEvery="int(1000)" -n 10000
+cmsDriver.py Configuration/GenProduction/python/external_lhe_cff.py --python_filename external_lhe_cfg.py --eventcontent RAWSIM,NANOAODGEN --datatier GEN,NANOAOD --filein file:PATH/TO/YOUR/unweighted_events.lhe --fileout file:ttbar.root --conditions 106X_upgrade2018_realistic_v4 --beamspot Realistic25ns13TeVEarly2018Collision --step GEN,NANOGEN --geometry DB:Extended --era Run2_2018 --no_exec --mc --customise_commands process.MessageLogger.cerr.FwkReport.reportEvery="int(1000)" -n 10000
 ```
 
 One can then run the config thus produced using the following command:
@@ -158,9 +158,11 @@ One can then run the config thus produced using the following command:
 cmsRun external_lhe_cfg.py
 ```
 
-Look at printed event output
+By default, pythia produces events in the HEPMC format. We provide an example of 10 events in this format in [ttbar.hepmc](ttbar.hepmc). As you can see, this is not very readable, being a list of vertices (V) and particles coming from these (P). This is not outputted by CMSSW, but instead converted to a root file in the GEN format (`ttbar.root`). This is not very easy to analyse directly, and is intended for passing to further commands to run the detector simulation and reconstruction to provide the (mini/nano)AOD samples you use in your analysis.
 
-This will produce events in a root file in the GEN format. This is not very easy to analyse directly, and is intended for passing to further commands to run the detector simulation and reconstruction to provide the (mini/nano)AOD samples you use in your analysis. It can also be converted to nanoGEN, a format similar to nanoAOD containing only generator information. However in this exercise we will not look directly in this file, but instead look at the output of some analyses implemented in rivet which we included in the fragment.  We will cover how to make your own rivet analysis in section 3, but for now you can look at the output of the pre-defined ones, which include some unfolded data from previous anlyses. cmsRun will have produced a rivetfile called `ttbar_external_lhe.yoda` containing all of the output histograms from these analyses, which one can plot with the following command:
+The command you have just run further converts this to nanoGEN, a format similar to nanoAOD containing only generator information. You can try opening `ttbar_inNANOAODGEN.root` with either ROOT or uproot - you can find the pdgIds of the generated particles in the "GenPart_pdgId" branch of the "Events" tree, see what other properties you can find.
+
+However for this exercise we will not attempt to perform an anlysis directly on this file, but instead look at the output of some analyses implemented in rivet which we included in the fragment.  We will cover how to make your own rivet analysis in section 3, but for now you can look at the output of the pre-defined ones, which include some unfolded data from previous anlyses. cmsRun will have produced a rivetfile called `ttbar_external_lhe.yoda` containing all of the output histograms from these analyses, which one can plot with the following command:
 
 ```
 rivet-mkhtml --mc-errs ttbar_external_lhe.yoda
@@ -209,6 +211,11 @@ You can then produce the rivet plots for this run, and compare it to what you pr
 rivet-mkhtml --mc-errs ttbar_gridpack.yoda ttbar_external_lhe.yoda
 ```
 
+#### Extensions:
+
+- To get a higher accuracy, one can simulate ttbar at next-to-leading order (NLO) with Madgraph. We provide the cards for this in `cards/examples/ttbar_NLO` have a look at these cards, produce a gridpack from them and shower this with pythia. How do the rivet plots compare to the LO ones?
+
+- An alternative to producing full higher order predictions is to produce events at leading order with additional jets in madgraph, which can capture some of the higher order effect. Commonly this is done with up to four additional jets, however to have a reasonably quick example for this exercise we provide cards for ttbar with up to 1 additional jet in `cards/examples/tt1j_mlm`. This can lead to some double counting with the parton shower emmissions in Pythia, so we need to tell Pythia to remove this double counting. This can be done with the [Fragments/gridpack_mlm_cff.py](Fragments/gridpack_mlm_cff.py) fragment. How do these predictions compare to NLO and LO without additional emissions?
 
 ## Exercise 3: Modify rivet routines
 Rivet is a system for validation of Monte Carlo event generators that provides a large set of experimental analysis. It contains most of the LHC and other high-energy colliders experiments code which is preserved for comparison and develompent of future therory models. In this exercise we will use CMS_2016_I1491950 and will modify to add the number of jets and jet pt doing:
