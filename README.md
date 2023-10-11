@@ -199,6 +199,7 @@ Feel free to discuss your outputs with the Facilators to understand the impact o
 While running madgraph interactively is useful for smaller tests, it is rather cumbersome for large scale production, since the intial set-up would have to be repeated in each job. In CMS we therefore use "gridpacks", which are tarballs containing all of the information necessary to generate events. These can be produced using the [CMS genproductions repository](https://github.com/cms-sw/genproductions/tree/master), which contains cards for all of the different physics processes in CMS, and the code to make gridpacks of these for different generators. However since this is a very large repository, we will use a [lightweight version](https://github.com/Dominic-Stafford/POSDAS23_genproductions) for this exercise. In a new terminal session (without CMSSW active) check out this repository and navigate to the madgraph directory:
 
 ```
+source /cvmfs/grid.desy.de/etc/profile.d/grid-ui-env.sh
 git clone https://github.com/Dominic-Stafford/POSDAS23_genproductions.git
 cd POSDAS23_genproductions/bin/MadGraph5_aMCatNLO
 ```
