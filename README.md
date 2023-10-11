@@ -211,7 +211,7 @@ This will generate the feynmann diagrams, code and integration grid to produce e
 
 ```
 cd /PATH/TO/CMSSW_12_4_14_patch2/src
-cp /PATH/TO/CMS_POSDAS_23_GEN/Fragments/external_lhe_cff.py Configuration/GenProduction/python
+cp /PATH/TO/CMS_POSDAS_23_GEN/Fragments/gridpack_cff.py Configuration/GenProduction/python
 scram b -j 4
 cmsDriver.py Configuration/GenProduction/python/gridpack_cff.py --python_filename gridpack_cfg.py --eventcontent RAWSIM,LHE --datatier GEN,LHE --fileout file:ttbar_1j.root --conditions 106X_upgrade2018_realistic_v4 --beamspot Realistic25ns13TeVEarly2018Collision --step LHE,GEN --geometry DB:Extended --era Run2_2018 --no_exec --mc --customise_commands process.MessageLogger.cerr.FwkReport.reportEvery="int(1000)" -n 10000
 cmsRun gridpack_cfg.py
