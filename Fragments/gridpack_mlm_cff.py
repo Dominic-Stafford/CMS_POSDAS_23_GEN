@@ -52,6 +52,6 @@ rivetAnalyzer.AnalysisNames = cms.vstring(
     'CMS_2018_I1620050',  # diff xs dilepton (2015 paper)
     'CMS_2018_I1663958',  # ttbar lepton+jets 13 TeV
 )
-rivetAnalyzer.OutputFile = cms.string("ttbar_gridpack.yoda")
+rivetAnalyzer.OutputFile = cms.string("ttbar_gridpack_mlm.yoda")
 
 ProductionFilterSequence = cms.Sequence(generator*rivetAnalyzer)
