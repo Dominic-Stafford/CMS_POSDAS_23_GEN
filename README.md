@@ -66,6 +66,8 @@ The madgraph5_aMC@NLO (in short MG5_aMC) program we will use in this tutorial is
 It can perform the automatic computation of  parton-level events for arbitrary Standard Model processes
 and for many theories Beyond the Standard Model at leading-order (LO) and next-to-leading-order (NLO) in the strong coupling.
 
+A comprehensive tutorial of the MG5_aMC capabilities, syntax and steering can be found here:
+https://indico.cern.ch/event/555228/sessions/203428/attachments/1315471/1970459/tutorial-CMSandATLAS-2016.pdf
 
 
 MG5_aMC comes with an interactive shell, which is very helpful for learning the syntax of the commands. To start this, type:
