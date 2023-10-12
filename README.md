@@ -2,6 +2,9 @@
 
 ##  Preliminaries
 
+### Introductory slides
+[POSDAS-generators](https://indico.desy.de/event/38207/contributions/152486/attachments/85932/114250/POSDAS-generators.pdf)
+
 ###  Setting up [CMSSW](https://github.com/cms-sw/cmssw) 
 
 We will first configure a CMSSW release to ensure everyone has a consistent environment and set of enviroment variables. 
