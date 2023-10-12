@@ -21,10 +21,15 @@ generator = cms.EDFilter("Pythia8HadronizerFilter",
         pythia8CommonSettingsBlock,
         pythia8CP5SettingsBlock,
         processParameters = cms.vstring(
+             'PartonLevel:MPI = off', #Turn off Multiparton interactions
+             #'HadronLevel:Decay = off', #Turn off decays of hadrons
+             #'HadronLevel:Hadronize = off', #Turn off hadronisation
+             #'PartonLevel:FSR = off', #Turn off final state parton Shower
+             #'PartonLevel:ISR = off', #Turn off initial state parton Shower
         ),
         parameterSets = cms.vstring('pythia8CommonSettings',
                                     'pythia8CP5Settings',
-                                    #'processParameters',
+                                    'processParameters',
                                     )
     )
 )
